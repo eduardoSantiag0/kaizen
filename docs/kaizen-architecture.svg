@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">Kaizen system communication flow</title>
+  <desc id="desc">Telegram User sends a study command to kaizan-companion, which submits analysis to kaizen-runpod-katago and receives a result callback. The backend delivers results to the user. The user opens kaizen-miniapp, which requests history from the backend using Telegram initData.</desc>
+  <defs>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0f766e"/>
+    </marker>
+    <marker id="arrowSlate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#64748b"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-25%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="560" rx="20" fill="#f8fafc"/>
+  <g stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"><path d="M69 40 Q80 44 91 40 M72 48 H88 M75 48 V63 M85 48 V63 M72 63 H88"/></g>
+  <text x="104" y="61" fill="#0f172a" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="26" font-weight="750">Kaizen</text>
+  <text x="68" y="87" fill="#64748b" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15">System communication flow</text>
+
+  <!-- Edges: separate lanes keep both directions legible. -->
+  <g fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- User to backend -->
+    <path d="M307 187 H473" stroke="#2563eb" marker-end="url(#arrowBlue)"/>
+    <!-- Backend to user -->
+    <path d="M473 249 H307" stroke="#64748b" marker-end="url(#arrowSlate)"/>
+    <!-- Backend to worker -->
+    <path d="M797 187 H939" stroke="#2563eb" marker-end="url(#arrowBlue)"/>
+    <!-- Worker to backend -->
+    <path d="M939 249 H797" stroke="#64748b" marker-end="url(#arrowSlate)"/>
+    <!-- User to Mini App -->
+    <path d="M169 276 C169 365 225 423 325 423" stroke="#0f766e" marker-end="url(#arrowTeal)"/>
+    <!-- Mini App to backend -->
+    <path d="M610 463 C760 463 742 346 665 276" stroke="#0f766e" marker-end="url(#arrowTeal)"/>
+  </g>
+
+  <!-- Edge labels -->
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="600" text-anchor="middle">
+    <text x="389" y="172" fill="#1d4ed8">/study url</text>
+    <text x="389" y="273" fill="#475569">deliver results</text>
+    <text x="868" y="172" fill="#1d4ed8">submit analysis</text>
+    <text x="868" y="273" fill="#475569">result callback</text>
+    <text x="277" y="363" fill="#0f766e">open Mini App</text>
+    <text x="790" y="394" fill="#0f766e">GET /history</text>
+    <text x="790" y="414" fill="#0f766e" font-size="12">with Telegram initData</text>
+  </g>
+
+  <!-- Service cards -->
+  <g filter="url(#shadow)">
+    <rect x="61" y="160" width="246" height="116" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect x="473" y="160" width="324" height="116" rx="18" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <rect x="939" y="160" width="284" height="116" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect x="325" y="423" width="285" height="91" rx="18" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+  </g>
+
+  <!-- Card accent top strokes -->
+  <path d="M79 161 H289" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M491 161 H779" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+  <path d="M957 161 H1205" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M343 424 H592" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" text-anchor="middle">
+    <text x="184" y="209" fill="#0f172a" font-size="19" font-weight="700">Telegram User</text>
+    <text x="184" y="236" fill="#64748b" font-size="14">Bot commands &amp; results</text>
+
+    <text x="635" y="209" fill="#0f172a" font-size="20" font-weight="700">kaizan-companion</text>
+    <text x="635" y="236" fill="#64748b" font-size="14">Backend &amp; orchestration</text>
+
+    <text x="1081" y="209" fill="#0f172a" font-size="18" font-weight="700">kaizen-runpod-katago</text>
+    <text x="1081" y="236" fill="#64748b" font-size="14">GPU analysis worker</text>
+
+    <text x="467" y="463" fill="#0f172a" font-size="19" font-weight="700">kaizen-miniapp</text>
+    <text x="467" y="488" fill="#64748b" font-size="14">Telegram Mini App</text>
+  </g>
+</svg>

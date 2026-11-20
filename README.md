@@ -21,16 +21,8 @@
 ---
 
 ## How the Three Components Communicate
+![Kaizen Architecture](./docs/kaizen-architecture.svg)
 
-```mermaid
-flowchart LR
-    U([Telegram User]) -->|"/study url"| BE[kaizan-companion]
-    BE -->|submit analysis| RP[kaizen-runpod-katago]
-    RP -->|result callback| BE
-    BE -->|deliver results| U
-    U -->|open Mini App| FE[kaizen-miniapp]
-    FE -->|GET /history with Telegram initData| BE
-```
 
 - **kaizan-companion ↔ kaizen-runpod-katago**: Server-to-server communication. The backend submits analysis requests via HTTP to the RunPod Serverless endpoint; the worker returns results through an HTTP callback authenticated with a shared secret (`X-Kaizen-Secret`).
 - **kaizan-companion ↔ kaizen-miniapp**: The Mini App calls `GET /kaizan/api/v1/katago/history` on the backend, authenticating with the signed `initData` provided by Telegram when the Mini App is launched from within Telegram — never relying on a user ID freely supplied by the client.
