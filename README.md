@@ -4,9 +4,9 @@
 
 | Project | Description | Deployment |
 |---|---|---|
-| [**kaizan-companion**](https://github.com/eduardoSantiago0/kaizan-companion) | Backend — Telegram bot, orchestration, database | Self-hosted VM (Docker Compose + Caddy) |
-| [**kaizen-miniapp**](https://github.com/eduardoSantiago0/kaizen-miniapp) | Frontend — Telegram Mini App for practicing mistakes | Vercel |
-| [**kaizen-runpod-katago**](https://github.com/eduardoSantiago0/kaizen-runpod-katago) | GPU worker — runs the KataGo engine | RunPod Serverless |
+| [**kaizen-companion**](https://github.com/eduardoSantiag0/kaizen-companion) | Backend — Telegram bot, orchestration, database | Self-hosted VM (Docker Compose + Caddy) |
+| [**kaizen-miniapp**](https://github.com/eduardoSantiag0/kaizen-miniapp) | Frontend — Telegram Mini App for practicing mistakes | Vercel |
+| [**kaizen-runpod-katago**](https://github.com/eduardoSantiag0/kaizen-runpod-katago) | GPU worker — runs the KataGo engine | RunPod Serverless |
 
 ---
 
@@ -32,6 +32,6 @@
 
 ## Infrastructure
 
-- **kaizan-companion** runs on a dedicated VM (Caddy providing automatic HTTPS via Let's Encrypt, PostgreSQL, RabbitMQ, and a lightweight proxy for the RunPod status API) — all managed through `docker compose`.
+- **kaizen-companion** runs on a dedicated VM (Caddy providing automatic HTTPS via Let's Encrypt, PostgreSQL, RabbitMQ, and a lightweight proxy for the RunPod status API) — all managed through `docker compose`.
 - **kaizen-miniapp** is a static Angular SPA with no backend of its own — hosted on Vercel.
 - **kaizen-runpod-katago** packages KataGo with CUDA into a Docker image published on Docker Hub, used by a RunPod Serverless endpoint (on-demand GPU, scaling to zero when idle).
